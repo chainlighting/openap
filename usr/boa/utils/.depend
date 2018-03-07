@@ -1,0 +1,13 @@
+flash.o: flash.c ../apmib/apmib.h ../apmib/list.h ../apmib/mibdef.h \
+ ../apmib/mibtbl.h ../apmib/apmib.h \
+ /home/openap/rtl819x/linux-3.10/drivers/net/wireless/rtl8192cd/ieee802_mib.h
+comapi.o: comapi.c ../apmib/apmib.h ../apmib/list.h ../apmib/mibdef.h \
+ ../apmib/mibtbl.h ../apmib/apmib.h \
+ ../../../linux-3.10/drivers/net/wireless/rtl8192cd/ieee802_mib.h
+fwd.o: fwd.c
+uart.o: uart.c
+fwupg.o: fwupg.c ../src/boa.h ../src/config.h ../src/compat.h \
+ ../src/defines.h ../src/globals.h ../src/escape.h ../src/apform.h \
+ ../apmib/apmib.h ../apmib/list.h ../apmib/mibdef.h ../src/utility.h
+utility.o: ../src/utility.c ../apmib/apmib.h ../apmib/list.h \
+ ../apmib/mibdef.h ../src/utility.h

@@ -1,0 +1,34 @@
+#ifndef __MAC_2_OUI_H__
+#define __MAC_2_OUI_H__
+#ifdef  __cplusplus
+extern "C" {
+#endif
+
+/*
+load mac oui table map from config file.
+return: 
+(1)->load ok,(-1)->load failed
+*/
+int mac2oui_tbl_load(
+    char* cfgFile
+);
+
+/*
+search oui by mac-address's first 3Bytes.
+para:
+mac_ind, mac-address's first 3Bytes
+oui_buf,  oui output buffer
+oui_buf_len, oui output buffer len
+return:
+(1)->found,(-1)->not found
+*/
+int mac2oui_tbl_search(
+	char* mac_ind,
+	char* oui_buf,
+	int   oui_buf_len
+);
+
+#ifdef  __cplusplus
+}
+#endif
+#endif

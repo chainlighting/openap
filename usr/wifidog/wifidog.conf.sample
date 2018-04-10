@@ -1,0 +1,37 @@
+cat <<EOF > /var/wifidog.conf
+GatewayInterface br0
+HtmlMessageFile /etc/wifidog/wifidog-msg.html
+AuthServer {
+    Hostname www.wifiyun.org
+    SSLAvailable no
+    HTTPPort 80
+    Path /
+    MsgScriptPathFragment gw_message/?
+}
+PopularServers kernel.org,ieee.org
+FirewallRuleSet global {
+    FirewallRule allow tcp to www.wifiyun.org
+    FirewallRule allow tcp to www.ybao.org
+    FirewallRule allow tcp to *.ucweb.com
+}
+
+FirewallRuleSet validating-users {
+    FirewallRule allow to 0.0.0.0/0
+}
+
+FirewallRuleSet known-users {
+    FirewallRule allow to 0.0.0.0/0
+}
+
+FirewallRuleSet unknown-users {
+    FirewallRule allow udp port 53
+    FirewallRule allow tcp port 53
+    FirewallRule allow udp port 67
+    FirewallRule allow tcp port 67
+}
+
+FirewallRuleSet locked-users {
+    FirewallRule block to 0.0.0.0/0
+}
+
+EOF
